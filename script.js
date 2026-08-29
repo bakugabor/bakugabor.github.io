@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js-ready');
+
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.site-nav');
 
