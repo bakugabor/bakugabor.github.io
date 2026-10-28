@@ -87,3 +87,26 @@ if (lightbox) {
   });
 }
 
+if (document.body.dataset.promo === 'tinting') {
+  const previousFocus = document.activeElement;
+  const promo = document.createElement('section');
+  promo.className = 'promo-overlay';
+  promo.setAttribute('role', 'dialog');
+  promo.setAttribute('aria-modal', 'true');
+  promo.setAttribute('aria-labelledby', 'promo-title');
+  promo.innerHTML = `<article class="promo-modal"><button class="promo-close" type="button" aria-label="Zavrieť akciu">×</button><div class="promo-content"><p class="promo-kicker">AUTOFÓLIE DS · DOLNÝ ŠTÁL</p><h2 id="promo-title">Tónovanie autoskiel <em>–10 %</em></h2><p class="promo-lead">Doprajte svojmu autu viac štýlu, súkromia a ochrany.</p><div class="promo-offer"><strong>Zľava 10 % z celkovej ceny pri použití fólií:</strong><span>Skyfol HP PRO · Skyfol NT Ceramic · Skyfol BabyGuard</span></div><p class="promo-gift">🎁 Ku každému tónovaniu autoskiel fólia na displej ako darček.</p><p class="promo-deadline">Akcia platí do 30. 11. 2026.</p><div class="promo-actions"><a href="https://m.me/WrapMonkeyDS" target="_blank" rel="noopener noreferrer">Napísať správu <span>→</span></a><a href="tel:+421918093737">Zavolať <span>→</span></a></div></div></article>`;
+
+  const closePromo = () => {
+    promo.remove();
+    document.body.classList.remove('promo-open');
+    previousFocus?.focus?.();
+  };
+
+  document.body.append(promo);
+  document.body.classList.add('promo-open');
+  promo.querySelector('.promo-close').focus();
+  promo.querySelector('.promo-close').addEventListener('click', closePromo);
+  promo.addEventListener('click', (event) => { if (event.target === promo) closePromo(); });
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closePromo(); }, { once: true });
+}
+
