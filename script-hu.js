@@ -27,8 +27,12 @@ const gallerySets = {
 const lightbox = document.querySelector('.gallery-lightbox');
 let activeSlider = null;
 
+function initializeGalleries(managedGallery = {}) {
 document.querySelectorAll('.gallery-slider').forEach((slider) => {
-  const photos = gallerySets[slider.dataset.gallery];
+  const extraPhotos = Array.isArray(managedGallery[slider.dataset.gallery])
+    ? managedGallery[slider.dataset.gallery].map((entry) => entry.image).filter(Boolean)
+    : [];
+  const photos = [...gallerySets[slider.dataset.gallery], ...extraPhotos];
   const title = slider.querySelector('h3').textContent;
   const image = slider.querySelector('img');
   const count = slider.querySelector('.gallery-count');
@@ -61,6 +65,28 @@ document.querySelectorAll('.gallery-slider').forEach((slider) => {
   slider.querySelector('.gallery-stage').addEventListener('touchend', (event) => { const distance = event.changedTouches[0].clientX - touchStart; if (Math.abs(distance) > 45) show(index + (distance < 0 ? 1 : -1)); }, { passive: true });
   show(0);
 });
+}
+
+if (document.querySelector('.gallery-slider')) {
+  fetch('content/gallery.json', { cache: 'no-cache' })
+    .then((response) => response.ok ? response.json() : {})
+    .then(initializeGalleries)
+    .catch(() => initializeGalleries());
+}
+
+if (document.querySelector('[data-home-text]')) {
+  fetch('content/home.json', { cache: 'no-cache' })
+    .then((response) => response.ok ? response.json() : null)
+    .then((content) => {
+      const language = document.documentElement.lang === 'hu' ? 'hu' : 'sk';
+      const text = content?.[language] || {};
+      document.querySelectorAll('[data-home-text]').forEach((element) => {
+        const value = text[element.dataset.homeText];
+        if (typeof value === 'string') element.textContent = value;
+      });
+    })
+    .catch(() => {});
+}
 
 function updateLightbox() {
   lightbox.querySelector('img').src = activeSlider.photos[activeSlider.index];

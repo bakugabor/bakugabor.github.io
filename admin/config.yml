@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: bakugabor/bakugabor.github.io
+  branch: main
+  base_url: https://autofolieds-cms-auth.bakugabor.workers.dev
+  auth_endpoint: auth
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "homepage"
+    label: "Főoldal szövegei"
+    files:
+      - name: "home"
+        label: "Szlovák és magyar főoldal"
+        file: "content/home.json"
+        fields:
+          - label: "Szlovák"
+            name: "sk"
+            widget: "object"
+            fields:
+              - { label: "Főcím előtti sor", name: "eyebrow", widget: "string" }
+              - { label: "Főcím", name: "title", widget: "string" }
+              - { label: "Narancssárga főcímsor", name: "accent", widget: "string" }
+              - { label: "Bevezető szöveg", name: "lead", widget: "text" }
+          - label: "Magyar"
+            name: "hu"
+            widget: "object"
+            fields:
+              - { label: "Főcím előtti sor", name: "eyebrow", widget: "string" }
+              - { label: "Főcím", name: "title", widget: "string" }
+              - { label: "Narancssárga főcímsor", name: "accent", widget: "string" }
+              - { label: "Bevezető szöveg", name: "lead", widget: "text" }
+  - name: "gallery"
+    label: "Galéria – új képek"
+    files:
+      - name: "gallery"
+        label: "Képfeltöltés"
+        file: "content/gallery.json"
+        fields:
+          - label: "PPF"
+            name: "ppf"
+            widget: "list"
+            fields: [{ label: "Kép", name: "image", widget: "image" }]
+          - label: "Üvegsötétítés"
+            name: "tint"
+            widget: "list"
+            fields: [{ label: "Kép", name: "image", widget: "image" }]
+          - label: "Wrap / dechrome"
+            name: "wrap"
+            widget: "list"
+            fields: [{ label: "Kép", name: "image", widget: "image" }]
+          - label: "Épületfólia"
+            name: "building"
+            widget: "list"
+            fields: [{ label: "Kép", name: "image", widget: "image" }]
+          - label: "Lámpafólia"
+            name: "lights"
+            widget: "list"
+            fields: [{ label: "Kép", name: "image", widget: "image" }]
