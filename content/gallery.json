@@ -48,7 +48,29 @@
       "image": "/uploads/1793293532814-img_5274.jpeg"
     }
   ],
-  "wrap": [],
+  "wrap": [
+    {
+      "image": "/uploads/1793293938341-joy_20261028_115739_136_photo.jpeg"
+    },
+    {
+      "image": "/uploads/1793293941696-joy_20261028_115711_317_photo.jpeg"
+    },
+    {
+      "image": "/uploads/1793293944253-img_6079.jpeg"
+    },
+    {
+      "image": "/uploads/1793293947605-img_5749.jpeg"
+    },
+    {
+      "image": "/uploads/1793293952254-img_5722.jpeg"
+    },
+    {
+      "image": "/uploads/1793293956417-img_5266.jpeg"
+    },
+    {
+      "image": "/uploads/1793293960291-img_5268.jpeg"
+    }
+  ],
   "building": [],
   "lights": []
 }
