@@ -22,7 +22,32 @@
       "image": "/uploads/img_6282.jpeg"
     }
   ],
-  "tint": [],
+  "tint": [
+    {
+      "image": "/uploads/1793293502463-joy_20261019_113621_719_photo.jpeg"
+    },
+    {
+      "image": "/uploads/1793293505804-joy_20260928_183656_718_photo.jpeg"
+    },
+    {
+      "image": "/uploads/1793293510033-joy_20260928_151333_873_photo.jpeg"
+    },
+    {
+      "image": "/uploads/1793293515859-img_5465.jpeg"
+    },
+    {
+      "image": "/uploads/1793293520802-img_5449.jpeg"
+    },
+    {
+      "image": "/uploads/1793293525669-img_5447.jpeg"
+    },
+    {
+      "image": "/uploads/1793293529098-img_5299.jpeg"
+    },
+    {
+      "image": "/uploads/1793293532814-img_5274.jpeg"
+    }
+  ],
   "wrap": [],
   "building": [],
   "lights": []
