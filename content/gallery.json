@@ -72,5 +72,15 @@
     }
   ],
   "building": [],
-  "lights": []
+  "lights": [
+    {
+      "image": "/uploads/1793294327054-img_5747.jpeg"
+    },
+    {
+      "image": "/uploads/1793294331122-img_5309.jpeg"
+    },
+    {
+      "image": "/uploads/1793294336415-img_5295.jpeg"
+    }
+  ]
 }
