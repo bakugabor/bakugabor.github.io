@@ -36,26 +36,73 @@ collections:
     label: "Galéria – új képek"
     files:
       - name: "gallery"
-        label: "Képfeltöltés"
+        label: "Képfeltöltés és sorrend"
         file: "content/gallery.json"
         fields:
-          - label: "PPF"
+          - label: "PPF – új képek felül, a lista sorrendje a weboldal sorrendje"
             name: "ppf"
             widget: "list"
             fields: [{ label: "Kép", name: "image", widget: "image" }]
-          - label: "Üvegsötétítés"
+          - label: "Üvegsötétítés – új képek felül, a lista sorrendje a weboldal sorrendje"
             name: "tint"
             widget: "list"
             fields: [{ label: "Kép", name: "image", widget: "image" }]
-          - label: "Wrap / dechrome"
+          - label: "Wrap / dechrome – új képek felül, a lista sorrendje a weboldal sorrendje"
             name: "wrap"
             widget: "list"
             fields: [{ label: "Kép", name: "image", widget: "image" }]
-          - label: "Épületfólia"
+          - label: "Épületfólia – új képek felül, a lista sorrendje a weboldal sorrendje"
             name: "building"
             widget: "list"
             fields: [{ label: "Kép", name: "image", widget: "image" }]
-          - label: "Lámpafólia"
+          - label: "Lámpafólia – új képek felül, a lista sorrendje a weboldal sorrendje"
             name: "lights"
             widget: "list"
             fields: [{ label: "Kép", name: "image", widget: "image" }]
+  - name: "prices"
+    label: "Árlisták"
+    files:
+      - name: "price_editor"
+        label: "Árak és kategóriák – szlovákul és magyarul"
+        file: "content/price-editor.json"
+        fields:
+          - label: "Üvegsötétítés"
+            name: "tint"
+            widget: "object"
+            fields:
+              - label: "Szlovák"
+                name: "sk"
+                widget: "object"
+                fields:
+                  - { label: "Ártáblázat", name: "rows", widget: "list", fields: [{ label: "Járműkategória", name: "category", widget: "string" }, { label: "HP PRO", name: "hp", widget: "string" }, { label: "NT Ceramic", name: "ceramic", widget: "string" }, { label: "BabyGuard", name: "baby", widget: "string" }] }
+                  - { label: "Kiegészítő árak", name: "extras", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }
+              - label: "Magyar"
+                name: "hu"
+                widget: "object"
+                fields:
+                  - { label: "Ártáblázat", name: "rows", widget: "list", fields: [{ label: "Járműkategória", name: "category", widget: "string" }, { label: "HP PRO", name: "hp", widget: "string" }, { label: "NT Ceramic", name: "ceramic", widget: "string" }, { label: "BabyGuard", name: "baby", widget: "string" }] }
+                  - { label: "Kiegészítő árak", name: "extras", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }
+          - label: "PPF védőfólia"
+            name: "ppf"
+            widget: "object"
+            fields:
+              - { label: "Szlovák csomagok", name: "sk", widget: "object", fields: [{ label: "Csomagok", name: "items", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }] }
+              - { label: "Magyar csomagok", name: "hu", widget: "object", fields: [{ label: "Csomagok", name: "items", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }] }
+          - label: "Dechrome és wrap"
+            name: "wrap"
+            widget: "object"
+            fields:
+              - { label: "Szlovák", name: "sk", widget: "object", fields: [{ label: "Járműméret szerinti árak", name: "vehicles", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }, { label: "További tételek", name: "details", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }] }
+              - { label: "Magyar", name: "hu", widget: "object", fields: [{ label: "Járműméret szerinti árak", name: "vehicles", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }, { label: "További tételek", name: "details", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }] }
+          - label: "Lámpafólia"
+            name: "lights"
+            widget: "object"
+            fields:
+              - { label: "Szlovák tételek", name: "sk", widget: "object", fields: [{ label: "Tételek", name: "items", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Első lámpák", name: "front", widget: "string" }, { label: "Hátsó lámpák", name: "rear", widget: "string" }] }] }
+              - { label: "Magyar tételek", name: "hu", widget: "object", fields: [{ label: "Tételek", name: "items", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Első lámpák", name: "front", widget: "string" }, { label: "Hátsó lámpák", name: "rear", widget: "string" }] }] }
+          - label: "Épületfólia"
+            name: "building"
+            widget: "object"
+            fields:
+              - { label: "Szlovák tételek", name: "sk", widget: "object", fields: [{ label: "Tételek", name: "items", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }] }
+              - { label: "Magyar tételek", name: "hu", widget: "object", fields: [{ label: "Tételek", name: "items", widget: "list", fields: [{ label: "Kategória", name: "label", widget: "string" }, { label: "Név", name: "title", widget: "string" }, { label: "Ár", name: "price", widget: "string" }] }] }

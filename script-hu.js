@@ -32,7 +32,7 @@ document.querySelectorAll('.gallery-slider').forEach((slider) => {
   const extraPhotos = Array.isArray(managedGallery[slider.dataset.gallery])
     ? managedGallery[slider.dataset.gallery].map((entry) => entry.image).filter(Boolean)
     : [];
-  const photos = [...gallerySets[slider.dataset.gallery], ...extraPhotos];
+  const photos = [...extraPhotos, ...gallerySets[slider.dataset.gallery]];
   const title = slider.querySelector('h3').textContent;
   const image = slider.querySelector('img');
   const count = slider.querySelector('.gallery-count');
